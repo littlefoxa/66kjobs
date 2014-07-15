@@ -8,22 +8,25 @@ require "bundler/capistrano"
 require "rvm/capistrano"
 require "cape"
 
-
+set :ssh_options, {
+  forward_agent: true,
+  port: 443
+}
 
 default_environment["PATH"] = "/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin"
 
 set :application, "66kjobs"
-set :repository,  "git@github.com:xdite/#{application}.git"
+set :repository,  "git@github.com:jsleetw/#{application}.git"
 set :deploy_to, "/home/apps/#{application}"
 
-set :branch, "production"
+set :branch, "1000k"
 set :scm, :git
 
-set :user, "apps"
-set :group, "apps"
+set :user, "deploy"
+set :group, "deploy"
 
-set :deploy_to, "/home/apps/#{application}"
-set :runner, "apps"
+set :deploy_to, "/home/deploy/#{application}"
+set :runner, "deploy"
 set :deploy_via, :remote_cache
 set :git_shallow_clone, 1
 set :use_sudo, false
@@ -34,9 +37,9 @@ set :whenever_command, "bundle exec whenever"
 #set :hipchat_room_name, APP_CONFIG["production"]["hipchat_room_name"]
 #set :hipchat_announce, false # notify users?
 
-role :web, "66kjobs.tw"                          # Your HTTP server, Apache/etc
-role :app, "66kjobs.tw"                         # This may be the same as your `Web` server
-role :db,  "66kjobs.tw"   , :primary => true # This is where Rails migrations will run
+role :web, "millioncase.youhack.com"                          # Your HTTP server, Apache/etc
+role :app, "millioncase.youhack.com"                         # This may be the same as your `Web` server
+role :db,  "millioncase.youhack.com"   , :primary => true # This is where Rails migrations will run
 
 set :deploy_env, "production"
 set :rails_env, "production"
@@ -64,7 +67,7 @@ namespace :my_tasks do
   task :symlink, :roles => [:web] do
     run "mkdir -p #{deploy_to}/shared/log"
     run "mkdir -p #{deploy_to}/shared/pids"
-    
+
     symlink_hash = {
       "#{shared_path}/config/database.yml.production"   => "#{release_path}/config/database.yml",
       "#{shared_path}/config/config.yml"   => "#{release_path}/config/config.yml",
