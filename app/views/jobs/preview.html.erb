@@ -2,8 +2,8 @@
     <div class="stepwizard-row">
         <div class="stepwizard-step">
           <%= link_to("1", new_job_path(:token => @job.token), :class => "btn btn-default btn-circle") %>
-      
-            <p>張貼工作內容</p>
+
+            <p>張貼案件內容</p>
         </div>
         <div class="stepwizard-step">
             <button type="button" class="btn btn-primary btn-circle" disabled="disabled">2</button>
@@ -12,7 +12,7 @@
         <div class="stepwizard-step">
           <%= link_to("3", final_jobs_path(:token => @job.token ), :class => "btn btn-default btn-circle") %>
             <p>確定張貼</p>
-        </div> 
+        </div>
     </div>
 </div>
 
@@ -21,7 +21,7 @@
   <br><br>
 
 
-  <h3> STEP 2 : 預覽你的徵才廣告 </h3>
+  <h3> STEP 2 : 預覽你的案件廣告 </h3>
 
   <div style="text-align:right;">
     <%= link_to("看起來很不錯，繼續前進到步驟 3 ", final_jobs_path(:token => @job.token ) , :class => "btn btn-large btn-danger") %> or <%= link_to("回去做些小改動", new_job_path(:token => @job.token) , :class => "underline red" )%>

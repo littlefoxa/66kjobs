@@ -6,24 +6,24 @@
        <h4 class="instruction"> &nbsp; &nbsp;&nbsp;第一步，告訴我們詳細資訊 </h4>
 
 
-    <%= f.input :title, :label => "Job Title", :hint => "“Senior Designer” or “Rails Programmer”" %>
+    <%= f.input :title, :label => "Case Title", :hint => "Ex. “Web Design” or “App Design”" %>
 
     <% @categories = Category.all.map{ |c| [c.name, c.id] } %>
 
     <%= f.input :category_id, :collection => @categories ,    as: :radio_buttons, :checked => @categories[1] %>
 
 
-     <%= f.input :lower_bound , :label => '薪水', :wrapper => :prepend_append do  %>
+     <%= f.input :lower_bound , :label => '預算', :wrapper => :prepend_append do  %>
          <%= f.input_field :lower_bound, :as => :string, placeholder: '下限 (Lower bound)' %> ~
          <%= f.input_field :higher_bound, :as => :string, placeholder: '上限 (Higher bound)' %>
      <% end %>
 
 
-    <%= f.input :location, :label => "工作地點", :hint => "臺北 / 高雄 / 上海 / ...etc." %>
+    <%= f.input :location, :label => "地點", :hint => "臺北 / 高雄 / 上海 / Remote ...etc." %>
 
-      <%= f.input :description, :label => "工作敘述", :input_html => { :rows => 10, :data => { :provide => "markdown"} }, :hint => "使用 Markdown 語法" %>
+      <%= f.input :description, :label => "案件敘述", :input_html => { :rows => 10, :data => { :provide => "markdown"} }, :hint => "使用 Markdown 語法" %>
 
-    <%= f.input :apply_instruction, :label => "如何應徵", :hint => "Example: Send a resume to hr@mycompany.com" , :input_html => { :rows => 3 } %>
+    <%= f.input :apply_instruction, :label => "如何聯繫", :hint => "Example: Send a resume to hr@mycompany.com" , :input_html => { :rows => 3 } %>
 
 
     <h4 class="instruction"> &nbsp; &nbsp;&nbsp;介紹你的公司 </h4>
@@ -42,7 +42,7 @@
 <div class="form-group text optional job_description">
   <label class="text optional col-sm-1 control-label" for="job_description"></label>
   <div class="col-sm-11">
-      <%= f.submit "預覽徵才啟事" , :class => "btn btn-lg btn-danger" %>
+      <%= f.submit "預覽案件刊登啟事" , :class => "btn btn-lg btn-danger" %>
   </div>
 </div>
 

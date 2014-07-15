@@ -4,7 +4,7 @@
 <div class="group">
   <span style="color:grey; font-weight:bold;"> <i class="glyphicon glyphicon-calendar"> </i> 刊登日期 <%= @job.created_on.to_s(:long) %> </span>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <span style="color:grey; font-weight:bold;"> <i class="glyphicon glyphicon-map-marker"></i> 上班地點 <%= @job.location %> </span>
+  <span style="color:grey; font-weight:bold;"> <i class="glyphicon glyphicon-map-marker"></i> 發案地點 <%= @job.location %> </span>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <span style="color:grey; font-weight:bold;" class="pull-right"> <%= render_job_salary(@job.lower_bound)%>  ~ <%= render_job_salary(@job.higher_bound)%> </span>
 </div>
