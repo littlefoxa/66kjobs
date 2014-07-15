@@ -50,7 +50,7 @@ gem 'mailgun-rails'
 gem 'mailgun', :git => "https://github.com/HashNuke/mailgun.git"
 gem 'rails-bootstrap-markdown'
 
-group :development do 
+group :development do
   gem "letter_opener"
   gem "capistrano", "2.15.5"
   gem "capistrano-ext"
@@ -62,7 +62,7 @@ end
 
 
 
-group :production do 
+group :production do
   gem "mysql2"
 end
 # Use ActiveModel has_secure_password
